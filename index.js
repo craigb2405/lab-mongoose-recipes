@@ -43,5 +43,17 @@ mongoose
   });
 
   Recipe.insertMany(data)
+  .then(data=>console.log(data))
+  .then (Recipe.deleteOne({title:"Carrot Cake"}))
+  .then((success) => console.log("Deletion updated!!"))
+  .then((success) => console.log(success))
+  .then(mongoose.disconnect)
+  .catch(err=>console.log(err))  
 
+  Recipe.findOneAndUpdate({title:"Rigatoni alla Genovese"}, {duration:100})
+  .then((success) => console.log("Duration updated!!"))
+  .catch(err=>console.log(err))   
+
+
+ 
 
